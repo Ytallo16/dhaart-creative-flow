@@ -22,6 +22,8 @@ export default {
 			fontFamily: {
 				'raleway': ['Raleway', 'sans-serif'],
 				'dm-sans': ['DM Sans', 'sans-serif'],
+				'playfair': ['Playfair Display', 'serif'],
+				'inter': ['Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

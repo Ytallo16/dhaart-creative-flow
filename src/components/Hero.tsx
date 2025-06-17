@@ -1,15 +1,24 @@
 
 const Hero = () => {
   return (
-    <section id="inicio" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-dhaart-blue-deep via-dhaart-blue-gray to-dhaart-brown-dark relative overflow-hidden">
-      <div className="absolute inset-0 bg-dhaart-black/20"></div>
+    <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-dhaart-blue-deep via-dhaart-blue-gray to-dhaart-brown-dark">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/background.png')"
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-dhaart-black/40"></div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="animate-fade-in">
-          <h1 className="font-raleway font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
-            Criatividade que
-            <span className="block text-dhaart-beige">conecta marcas</span>
-            <span className="block">e pessoas</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
+            <span className="font-playfair italic font-bold">Criatividade</span>{" "}
+            <span className="font-inter font-light">que</span>{" "}
+            <span className="font-raleway font-black text-dhaart-beige">conecta</span>{" "}
+            <span className="font-playfair italic font-bold text-dhaart-beige">marcas</span>{" "}
+            <span className="font-inter font-light">e</span>{" "}
+            <span className="font-raleway font-black text-dhaart-beige">pessoas</span>
           </h1>
           
           <p className="font-dm-sans text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">

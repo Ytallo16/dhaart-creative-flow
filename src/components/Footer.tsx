@@ -77,8 +77,13 @@ const Footer = () => {
             <p className="font-dm-sans text-gray-400 text-sm">
               © 2024 Dhaart Agência. Todos os direitos reservados.
             </p>
-            <p className="font-dm-sans text-gray-400 text-sm mt-4 md:mt-0">
-              Criatividade que conecta marcas e pessoas
+            <p className="text-gray-400 text-sm mt-4 md:mt-0">
+              <span className="font-playfair italic font-bold">Criatividade</span>{" "}
+              <span className="font-inter font-light">que</span>{" "}
+              <span className="font-raleway font-semibold text-dhaart-beige">conecta</span>{" "}
+              <span className="font-playfair italic">marcas</span>{" "}
+              <span className="font-inter font-light">e</span>{" "}
+              <span className="font-raleway font-semibold text-dhaart-beige">pessoas</span>
             </p>
           </div>
         </div>
