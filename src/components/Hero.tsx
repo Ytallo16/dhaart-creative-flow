@@ -11,19 +11,32 @@ const Hero = () => {
       <div className="absolute inset-0 bg-dhaart-black/40"></div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
-        <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
-            <span className="font-playfair italic font-bold">Criatividade</span>{" "}
-            <span className="font-inter font-light">que</span>{" "}
-            <span className="font-raleway font-black text-dhaart-beige">conecta</span>{" "}
-            <span className="font-playfair italic font-bold text-dhaart-beige">marcas</span>{" "}
-            <span className="font-inter font-light">e</span>{" "}
-            <span className="font-raleway font-black text-dhaart-beige">pessoas</span>
-          </h1>
+        <div className="animate-fade-in max-w-5xl mx-auto">
+          <div className="relative">
+            {/* Primeira linha - Autêntica */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl text-white leading-none mb-2">
+              <span className="font-raleway font-bold">Autêntica.</span>
+            </h1>
+            
+            {/* Segunda linha sobreposta - Criativa */}
+            <h1 className="text-6xl md:text-8xl lg:text-9xl leading-none relative -mt-4 md:-mt-6 lg:-mt-8 mb-2">
+              <span className="font-playfair italic font-bold text-dhaart-beige relative z-10">Criativa.</span>
+            </h1>
+            
+            {/* Terceira linha - Humanizada */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl text-white leading-none relative -mt-4 md:-mt-6 lg:-mt-8">
+              <span className="font-raleway font-bold">Humanizada.</span>
+            </h1>
+          </div>
           
-          <p className="font-dm-sans text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transformamos ideias em experiências visuais marcantes através de coberturas em tempo real e estratégias de social media que fazem a diferença.
-          </p>
+          <div className="max-w-4xl mx-auto mb-12 mt-8">
+            <p className="font-dm-sans text-lg md:text-xl text-white/90 leading-relaxed mb-2">
+              Feita para que sua marca permaneça <span className="font-bold text-white">na mente e no coração</span>
+            </p>
+            <p className="font-dm-sans text-lg md:text-xl text-white/90 leading-relaxed">
+              de quem importa: o seu paciente, o seu cliente, o seu público.
+            </p>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
