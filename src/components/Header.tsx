@@ -46,7 +46,7 @@ const Header = () => {
                 isScrolled ? 'text-dhaart-blue-deep hover:text-dhaart-brown-medium' : 'text-white hover:text-dhaart-beige'
               }`}
             >
-              Realtime
+              Cobertura Realtime
             </button>
             <button 
               onClick={() => scrollToSection('social-media')}

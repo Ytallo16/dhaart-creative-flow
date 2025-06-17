@@ -210,9 +210,9 @@ const ProjectTabs = () => {
   ];
 
   const VideoCard = ({ video }: { video: any }) => (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group border-2 border-dhaart-brown-medium/20 hover:border-dhaart-brown-medium/40">
+    <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group border-2 border-dhaart-brown-medium/20 hover:border-dhaart-brown-medium/40 max-w-sm mx-auto">
       <div className="relative">
-        <div className="aspect-[9/16] overflow-hidden">
+        <div className="aspect-[4/5] overflow-hidden">
           <img 
             src={video.thumbnail} 
             alt={video.title}
@@ -220,29 +220,29 @@ const ProjectTabs = () => {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-dhaart-brown-dark/60 via-transparent to-dhaart-blue-deep/40 group-hover:from-dhaart-brown-dark/50 transition-all duration-500"></div>
-        <div className="absolute top-4 right-4 bg-dhaart-brown-dark/90 text-dhaart-beige px-3 py-2 rounded-full text-sm font-dm-sans font-bold shadow-xl backdrop-blur-sm">
+        <div className="absolute top-3 right-3 bg-dhaart-brown-dark/90 text-dhaart-beige px-2 py-1 rounded-full text-xs font-dm-sans font-bold shadow-xl backdrop-blur-sm">
           {video.duration}
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-dhaart-beige/95 rounded-full p-6 group-hover:scale-125 transition-transform duration-500 shadow-2xl border-2 border-dhaart-brown-medium/30">
-            <Play className="w-12 h-12 text-dhaart-brown-dark fill-current" />
+          <div className="bg-dhaart-beige/95 rounded-full p-4 group-hover:scale-125 transition-transform duration-500 shadow-2xl border-2 border-dhaart-brown-medium/30">
+            <Play className="w-8 h-8 text-dhaart-brown-dark fill-current" />
           </div>
         </div>
       </div>
       
-      <div className="p-6 bg-gradient-to-br from-white to-dhaart-beige/10">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="bg-gradient-to-r from-dhaart-blue-deep to-dhaart-blue-gray text-white px-4 py-2 rounded-full text-xs font-raleway font-bold shadow-lg">
+      <div className="p-4 bg-gradient-to-br from-white to-dhaart-beige/10">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="bg-gradient-to-r from-dhaart-blue-deep to-dhaart-blue-gray text-white px-3 py-1 rounded-full text-xs font-raleway font-bold shadow-lg">
             {video.event}
           </span>
-          <span className="text-dhaart-brown-medium text-sm font-dm-sans font-semibold bg-dhaart-brown-medium/10 px-3 py-1 rounded-full">
+          <span className="text-dhaart-brown-medium text-xs font-dm-sans font-semibold bg-dhaart-brown-medium/10 px-2 py-1 rounded-full">
             {video.date}
           </span>
         </div>
-        <h3 className="font-raleway font-bold text-xl text-dhaart-blue-deep mb-3 leading-tight hover:text-dhaart-brown-dark transition-colors duration-300">
+        <h3 className="font-raleway font-bold text-lg text-dhaart-blue-deep mb-2 leading-tight hover:text-dhaart-brown-dark transition-colors duration-300 line-clamp-2">
           {video.title}
         </h3>
-        <p className="font-dm-sans text-dhaart-blue-gray leading-relaxed text-sm">
+        <p className="font-dm-sans text-dhaart-blue-gray leading-relaxed text-sm line-clamp-2">
           {video.description}
         </p>
       </div>
@@ -250,48 +250,48 @@ const ProjectTabs = () => {
   );
 
   const SocialCard = ({ project }: { project: any }) => (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 border-2 border-dhaart-brown-medium/20 hover:border-dhaart-brown-medium/40">
-      <div className="p-6 bg-gradient-to-br from-white to-dhaart-blue-deep/8">
-        <div className="flex items-center justify-between mb-5">
+    <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-dhaart-brown-medium/20 hover:border-dhaart-brown-medium/40 max-w-sm mx-auto">
+      <div className="p-4 bg-gradient-to-br from-white to-dhaart-blue-deep/8">
+        <div className="flex items-center justify-between mb-4">
           <div>
-            <h3 className="font-raleway font-bold text-xl text-dhaart-blue-deep mb-2 hover:text-dhaart-brown-dark transition-colors duration-300">
+            <h3 className="font-raleway font-bold text-lg text-dhaart-blue-deep mb-2 hover:text-dhaart-brown-dark transition-colors duration-300 line-clamp-1">
               {project.client}
             </h3>
-            <span className="font-dm-sans text-sm text-dhaart-brown-dark font-bold bg-gradient-to-r from-dhaart-brown-medium/20 to-dhaart-beige/40 px-4 py-2 rounded-full shadow-md">
+            <span className="font-dm-sans text-xs text-dhaart-brown-dark font-bold bg-gradient-to-r from-dhaart-brown-medium/20 to-dhaart-beige/40 px-3 py-1 rounded-full shadow-md">
               {project.category}
             </span>
           </div>
-          <span className="bg-gradient-to-r from-dhaart-beige to-dhaart-brown-medium/30 text-dhaart-brown-dark px-5 py-2 rounded-full text-sm font-raleway font-bold shadow-lg border border-dhaart-brown-medium/20">
+          <span className="bg-gradient-to-r from-dhaart-beige to-dhaart-brown-medium/30 text-dhaart-brown-dark px-3 py-1 rounded-full text-xs font-raleway font-bold shadow-lg border border-dhaart-brown-medium/20">
             Ativo
           </span>
         </div>
         
-        <p className="font-dm-sans text-dhaart-blue-gray mb-6 leading-relaxed text-sm">
+        <p className="font-dm-sans text-dhaart-blue-gray mb-4 leading-relaxed text-sm line-clamp-2">
           {project.objective}
         </p>
         
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          {project.images.map((img: string, index: number) => (
+        <div className="grid grid-cols-2 gap-2 mb-4">
+          {project.images.slice(0, 4).map((img: string, index: number) => (
             <div key={index} className="relative group">
-              <div className="aspect-[9/16] overflow-hidden rounded-2xl shadow-lg">
+              <div className="aspect-[4/5] overflow-hidden rounded-xl shadow-lg">
                 <img 
                   src={img} 
                   alt={`${project.client} post ${index + 1}`}
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-dhaart-blue-deep/30 to-transparent group-hover:from-dhaart-blue-deep/20 transition-all duration-500 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-dhaart-blue-deep/30 to-transparent group-hover:from-dhaart-blue-deep/20 transition-all duration-500 rounded-xl"></div>
             </div>
           ))}
         </div>
         
-        <div className="bg-gradient-to-r from-dhaart-beige/40 to-dhaart-brown-medium/20 p-5 rounded-2xl mb-5 border-2 border-dhaart-beige/60 shadow-inner">
-          <p className="font-dm-sans font-bold text-dhaart-brown-dark text-sm">
+        <div className="bg-gradient-to-r from-dhaart-beige/40 to-dhaart-brown-medium/20 p-3 rounded-xl mb-3 border-2 border-dhaart-beige/60 shadow-inner">
+          <p className="font-dm-sans font-bold text-dhaart-brown-dark text-xs">
             📈 {project.results}
           </p>
         </div>
         
-        <p className="font-dm-sans text-xs text-dhaart-brown-medium italic bg-gradient-to-r from-dhaart-blue-deep/10 to-dhaart-brown-medium/10 p-4 rounded-xl border border-dhaart-blue-deep/20">
+        <p className="font-dm-sans text-xs text-dhaart-brown-medium italic bg-gradient-to-r from-dhaart-blue-deep/10 to-dhaart-brown-medium/10 p-3 rounded-xl border border-dhaart-blue-deep/20 line-clamp-2">
           💡 {project.highlight}
         </p>
       </div>
@@ -322,7 +322,7 @@ const ProjectTabs = () => {
               }`}
             >
               <Video className="w-6 h-6 inline mr-3" />
-              Realtime
+              Cobertura Realtime
             </button>
             <button
               onClick={() => setActiveTab('social-media')}
@@ -338,7 +338,7 @@ const ProjectTabs = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 mb-20">
           {activeTab === 'realtime' && 
             realtimeVideos.map(video => (
               <VideoCard key={video.id} video={video} />
