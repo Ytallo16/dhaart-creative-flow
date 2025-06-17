@@ -24,6 +24,8 @@ export default {
 				'dm-sans': ['DM Sans', 'sans-serif'],
 				'playfair': ['Playfair Display', 'serif'],
 				'inter': ['Inter', 'sans-serif'],
+				'parisienne': ['Parisienne', 'cursive'],
+				'poppins': ['Poppins', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
