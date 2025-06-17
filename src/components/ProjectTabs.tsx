@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Play, Image, Video, Camera } from 'lucide-react';
+import { Play, Image, Video } from 'lucide-react';
 
 const ProjectTabs = () => {
   const [activeTab, setActiveTab] = useState('realtime');
@@ -32,33 +32,6 @@ const ProjectTabs = () => {
       duration: "3:20",
       event: "Festival de Inverno",
       date: "Julho 2023"
-    }
-  ];
-
-  const realtimePhotos = [
-    {
-      id: 1,
-      title: "Evento Corporativo Tech Summit",
-      description: "Cobertura fotográfica completa do maior evento de tecnologia",
-      images: ["/api/placeholder/300/400", "/api/placeholder/300/400", "/api/placeholder/300/400", "/api/placeholder/300/400"],
-      location: "São Paulo Convention Center",
-      date: "Abril 2024"
-    },
-    {
-      id: 2,
-      title: "Casamento Premium - Marina & Carlos",
-      description: "Fotografia de casamento com cobertura em tempo real",
-      images: ["/api/placeholder/300/400", "/api/placeholder/300/400", "/api/placeholder/300/400", "/api/placeholder/300/400"],
-      location: "Villa Bisutti",
-      date: "Dezembro 2023"
-    },
-    {
-      id: 3,
-      title: "Inauguração Restaurante Botanica",
-      description: "Evento de inauguração com influenciadores e mídia",
-      images: ["/api/placeholder/300/400", "/api/placeholder/300/400", "/api/placeholder/300/400", "/api/placeholder/300/400"],
-      location: "Jardins, São Paulo",
-      date: "Fevereiro 2024"
     }
   ];
 
@@ -126,43 +99,6 @@ const ProjectTabs = () => {
         <p className="font-dm-sans text-dhaart-blue-gray">
           {video.description}
         </p>
-      </div>
-    </div>
-  );
-
-  const PhotoCard = ({ project }: { project: any }) => (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="font-raleway font-bold text-xl text-dhaart-blue-deep">
-            {project.title}
-          </h3>
-          <Camera className="w-6 h-6 text-dhaart-brown-medium" />
-        </div>
-        
-        <p className="font-dm-sans text-dhaart-blue-gray mb-4">
-          {project.description}
-        </p>
-        
-        <div className="grid grid-cols-2 gap-2 mb-4">
-          {project.images.map((img: string, index: number) => (
-            <img 
-              key={index}
-              src={img} 
-              alt={`${project.title} foto ${index + 1}`}
-              className="w-full h-32 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
-            />
-          ))}
-        </div>
-        
-        <div className="flex items-center justify-between text-sm">
-          <span className="font-dm-sans text-dhaart-brown-medium">
-            📍 {project.location}
-          </span>
-          <span className="font-dm-sans text-dhaart-blue-gray">
-            {project.date}
-          </span>
-        </div>
       </div>
     </div>
   );
@@ -238,17 +174,6 @@ const ProjectTabs = () => {
               Realtime
             </button>
             <button
-              onClick={() => setActiveTab('photos')}
-              className={`px-6 py-3 rounded-full font-raleway font-semibold transition-all duration-300 ${
-                activeTab === 'photos'
-                  ? 'bg-dhaart-blue-deep text-white shadow-lg'
-                  : 'text-dhaart-blue-deep hover:bg-dhaart-beige/20'
-              }`}
-            >
-              <Camera className="w-4 h-4 inline mr-2" />
-              Fotos
-            </button>
-            <button
               onClick={() => setActiveTab('social-media')}
               className={`px-6 py-3 rounded-full font-raleway font-semibold transition-all duration-300 ${
                 activeTab === 'social-media'
@@ -269,12 +194,6 @@ const ProjectTabs = () => {
             ))
           }
           
-          {activeTab === 'photos' && 
-            realtimePhotos.map(project => (
-              <PhotoCard key={project.id} project={project} />
-            ))
-          }
-          
           {activeTab === 'social-media' && 
             socialMediaCases.map(project => (
               <SocialCard key={project.id} project={project} />
@@ -287,8 +206,6 @@ const ProjectTabs = () => {
             href={`https://wa.me/5511999999999?text=${encodeURIComponent(
               activeTab === 'realtime' 
                 ? 'Olá! Gostaria de solicitar um orçamento para cobertura do meu evento!'
-                : activeTab === 'photos'
-                ? 'Olá! Tenho interesse na cobertura fotográfica para meu evento!'
                 : 'Olá! Quero transformar meu Instagram! Vamos conversar?'
             )}`}
             target="_blank"
@@ -297,8 +214,6 @@ const ProjectTabs = () => {
           >
             {activeTab === 'realtime' 
               ? 'Solicite um orçamento para seu evento'
-              : activeTab === 'photos'
-              ? 'Quero uma cobertura fotográfica assim'
               : 'Quer transformar seu Instagram? Fale com a gente'
             }
           </a>

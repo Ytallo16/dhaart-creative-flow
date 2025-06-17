@@ -18,12 +18,12 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a 
-              href={`https://wa.me/5511999999999?text=${encodeURIComponent("Quer dar vida ao seu projeto? Vamos conversar!")}`}
+              href={`https://wa.me/5511999999999?text=${encodeURIComponent("Quer captar um momento importante da sua vida? Vamos conversar!")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-dhaart-beige text-dhaart-brown-dark px-8 py-4 rounded-full font-raleway font-bold text-lg hover:bg-white hover:scale-105 transition-all duration-300 shadow-2xl"
             >
-              Quer dar vida ao seu projeto? Fale conosco!
+              Quer captar um momento importante da sua vida? Fale conosco!
             </a>
             
             <button 
