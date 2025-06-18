@@ -9,7 +9,7 @@ const Hero = () => {
       ></div>
       <div className="absolute inset-0 bg-dhaart-black/40"></div>
       
-      <div className="container mx-auto px-6 relative z-10 pb-30 text-center">
+      <div className="container mx-auto px-6 relative z-10 pb-20 text-center">
         <div className="animate-fade-in max-w-6xl mx-auto">
           <div className="relative mb-10">
             {/* Primeira linha - Autêntica */}
@@ -19,7 +19,7 @@ const Hero = () => {
             
             {/* Segunda linha sobreposta - Criativa */}
             <h1 className="text-9xl md:text-[12rem] lg:text-[16rem] xl:text-[18rem] leading-none relative -mt-12 md:-mt-16 lg:-mt-20 xl:-mt-24 mb-4 md:mb-2">
-              <span className="font-parisienne text-dhaart-beige relative z-10 tracking-wide">Criativa.</span>
+              <span className="font-parisienne text-dhaart-beige relative z-10 tracking-normal">Criativa.</span>
             </h1>
             
             {/* Terceira linha - Humanizada */}
@@ -37,23 +37,7 @@ const Hero = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-16">
-            <a 
-              href={`https://wa.me/5511999999999?text=${encodeURIComponent("Quer captar um momento importante da sua vida? Vamos conversar!")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-dhaart-beige text-dhaart-brown-dark px-10 py-5 rounded-full font-raleway font-bold text-lg lg:text-xl hover:bg-white hover:scale-105 transition-all duration-300 shadow-2xl"
-            >
-              Quer captar um momento importante da sua vida? Fale conosco!
-            </a>
-            
-            <button 
-              onClick={() => document.getElementById('projetos')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white px-10 py-5 rounded-full font-dm-sans font-medium text-lg lg:text-xl hover:bg-white hover:text-dhaart-blue-deep transition-all duration-300"
-            >
-              Ver nossos projetos
-            </button>
-          </div>
+          
         </div>
       </div>
       

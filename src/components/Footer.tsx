@@ -1,11 +1,21 @@
 
 import { Instagram, Phone, Link } from 'lucide-react';
+import { useIntersectionObserver } from '../hooks/use-intersection-observer';
 
 const Footer = () => {
+  const footerRef = useIntersectionObserver({ threshold: 0.2 });
+
   return (
     <footer id="contato" className="bg-dhaart-black text-white py-16">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div 
+          ref={footerRef.elementRef}
+          className={`grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 transition-all duration-1000 ${
+            footerRef.isIntersecting 
+              ? 'animate-slide-up opacity-100' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           <div>
             <img 
               src="/lovable-uploads/d213942e-eba3-4bbd-bc3c-f2509f80d947.png" 

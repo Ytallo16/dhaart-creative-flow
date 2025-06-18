@@ -41,20 +41,20 @@ const Header = () => {
               Início
             </button>
             <button 
-              onClick={() => scrollToSection('realtime')}
+              onClick={() => scrollToSection('servicos')}
               className={`font-dm-sans transition-colors duration-300 ${
                 isScrolled ? 'text-dhaart-blue-deep hover:text-dhaart-brown-medium' : 'text-white hover:text-dhaart-beige'
               }`}
             >
-              Cobertura Realtime
+              Serviços
             </button>
             <button 
-              onClick={() => scrollToSection('social-media')}
+              onClick={() => scrollToSection('projetos')}
               className={`font-dm-sans transition-colors duration-300 ${
                 isScrolled ? 'text-dhaart-blue-deep hover:text-dhaart-brown-medium' : 'text-white hover:text-dhaart-beige'
               }`}
             >
-              Social Media
+              Projetos
             </button>
             <button 
               onClick={() => scrollToSection('contato')}

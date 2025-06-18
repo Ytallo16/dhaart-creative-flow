@@ -1,19 +1,24 @@
 
 import { useState } from 'react';
 import { Play, Image, Video } from 'lucide-react';
+import { useIntersectionObserver } from '../hooks/use-intersection-observer';
 
 const ProjectTabs = () => {
   const [activeTab, setActiveTab] = useState('realtime');
+  const titleRef = useIntersectionObserver({ threshold: 0.3 });
+  const tabsRef = useIntersectionObserver({ threshold: 0.5 });
+  const gridRef = useIntersectionObserver({ threshold: 0.1 });
 
   const realtimeVideos = [
     {
       id: 1,
-      title: "Fashion Week São Paulo 2024 - Backstage",
-      description: "Cobertura completa dos bastidores dos principais desfiles",
+      title: "Cobertura Realtime - Evento Especial",
+      description: "Transmissão ao vivo profissional de evento corporativo",
       thumbnail: "/api/placeholder/300/533",
-      duration: "2:30",
-      event: "Fashion Week SP",
-      date: "Março 2024"
+      duration: "Live",
+      event: "Evento Corporativo",
+      date: "2024",
+      driveLink: "https://drive.google.com/file/d/1tQ-WScThcj5n5376ejSPpQys_Y-r7Oa4/view?usp=drive_link"
     },
     {
       id: 2,
@@ -59,60 +64,6 @@ const ProjectTabs = () => {
       duration: "3:45",
       event: "Gala Beneficente",
       date: "Novembro 2023"
-    },
-    {
-      id: 7,
-      title: "Casamento Premium - Live Stream",
-      description: "Transmissão ao vivo de cerimônia exclusiva",
-      thumbnail: "/api/placeholder/300/533",
-      duration: "5:20",
-      event: "Casamento Premium",
-      date: "Maio 2024"
-    },
-    {
-      id: 8,
-      title: "Show Musical - Cobertura Completa",
-      description: "Experiência musical imersiva em tempo real",
-      thumbnail: "/api/placeholder/300/533",
-      duration: "3:15",
-      event: "Show Musical",
-      date: "Abril 2024"
-    },
-    {
-      id: 9,
-      title: "Formatura Medicina - Streaming",
-      description: "Momento especial transmitido ao vivo",
-      thumbnail: "/api/placeholder/300/533",
-      duration: "2:40",
-      event: "Formatura",
-      date: "Dezembro 2023"
-    },
-    {
-      id: 10,
-      title: "Evento Gastronômico - Live",
-      description: "Festival gastronômico em tempo real",
-      thumbnail: "/api/placeholder/300/533",
-      duration: "4:05",
-      event: "Festival Gastronômico",
-      date: "Março 2024"
-    },
-    {
-      id: 11,
-      title: "Lançamento Produto - Ao Vivo",
-      description: "Apresentação exclusiva de nova linha",
-      thumbnail: "/api/placeholder/300/533",
-      duration: "1:55",
-      event: "Lançamento",
-      date: "Janeiro 2024"
-    },
-    {
-      id: 12,
-      title: "Congresso Médico - Transmissão",
-      description: "Palestras e discussões médicas ao vivo",
-      thumbnail: "/api/placeholder/300/533",
-      duration: "6:30",
-      event: "Congresso Médico",
-      date: "Fevereiro 2024"
     }
   ];
 
@@ -170,63 +121,64 @@ const ProjectTabs = () => {
       results: "+250% seguidores, +120% consultas",
       images: ["/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427"],
       highlight: "Linguagem jurídica acessível"
-    },
-    {
-      id: 7,
-      client: "Padaria Artesanal Vila",
-      category: "Alimentação",
-      objective: "Mostrar processo artesanal e atrair clientes locais",
-      results: "+95% engajamento, +60% vendas",
-      images: ["/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427"],
-      highlight: "Storytelling do processo artesanal"
-    },
-    {
-      id: 8,
-      client: "Loja de Plantas Green",
-      category: "Decoração & Plantas",
-      objective: "Educar sobre cuidados e impulsionar vendas online",
-      results: "+220% seguidores, +140% vendas",
-      images: ["/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427"],
-      highlight: "Conteúdo educativo sobre plantas"
-    },
-    {
-      id: 9,
-      client: "Consultoria Financeira Pro",
-      category: "Finanças",
-      objective: "Educar sobre investimentos e gerar leads qualificados",
-      results: "+180% seguidores, +110% consultas",
-      images: ["/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427"],
-      highlight: "Educação financeira acessível"
-    },
-    {
-      id: 10,
-      client: "Pet Shop Amor Animal",
-      category: "Pet Care",
-      objective: "Conectar com tutores e promover produtos premium",
-      results: "+160% engajamento, +85% vendas",
-      images: ["/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427", "/api/placeholder/240/427"],
-      highlight: "Conteúdo emocional com pets"
     }
   ];
 
-  const VideoCard = ({ video }: { video: any }) => (
+  const VideoCard = ({ video }: { video: any }) => {
+    // Extrair o ID do Google Drive do link
+    const getDriveVideoId = (url: string) => {
+      const match = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+      return match ? match[1] : null;
+    };
+
+    const videoId = video.driveLink ? getDriveVideoId(video.driveLink) : null;
+    const embedUrl = videoId ? `https://drive.google.com/file/d/${videoId}/preview?autoplay=1&mute=1&loop=1` : null;
+
+    return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group border-2 border-dhaart-brown-medium/20 hover:border-dhaart-brown-medium/40 max-w-sm mx-auto">
       <div className="relative">
         <div className="aspect-[4/5] overflow-hidden">
-          <img 
-            src={video.thumbnail} 
-            alt={video.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          />
+          {embedUrl ? (
+            <div className="relative w-full h-full">
+              <iframe
+                src={embedUrl}
+                className="w-full h-full border-0"
+                allow="autoplay; encrypted-media; fullscreen"
+                allowFullScreen
+                loading="eager"
+                title={video.title}
+                sandbox="allow-scripts allow-same-origin allow-presentation"
+                onError={() => console.log('Erro ao carregar vídeo do Drive')}
+              />
+              <div className="absolute bottom-2 right-2">
+                <a
+                  href={video.driveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-dhaart-blue-deep text-white px-2 py-1 rounded text-xs hover:bg-dhaart-blue-gray transition-colors"
+                >
+                  Ver no Drive
+                </a>
+              </div>
+            </div>
+          ) : (
+            <>
+              <img 
+                src={video.thumbnail} 
+                alt={video.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dhaart-brown-dark/60 via-transparent to-dhaart-blue-deep/40 group-hover:from-dhaart-brown-dark/50 transition-all duration-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="bg-dhaart-beige/95 rounded-full p-4 group-hover:scale-125 transition-transform duration-500 shadow-2xl border-2 border-dhaart-brown-medium/30">
+                  <Play className="w-8 h-8 text-dhaart-brown-dark fill-current" />
+                </div>
+              </div>
+            </>
+          )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-dhaart-brown-dark/60 via-transparent to-dhaart-blue-deep/40 group-hover:from-dhaart-brown-dark/50 transition-all duration-500"></div>
         <div className="absolute top-3 right-3 bg-dhaart-brown-dark/90 text-dhaart-beige px-2 py-1 rounded-full text-xs font-dm-sans font-bold shadow-xl backdrop-blur-sm">
           {video.duration}
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-dhaart-beige/95 rounded-full p-4 group-hover:scale-125 transition-transform duration-500 shadow-2xl border-2 border-dhaart-brown-medium/30">
-            <Play className="w-8 h-8 text-dhaart-brown-dark fill-current" />
-          </div>
         </div>
       </div>
       
@@ -247,7 +199,8 @@ const ProjectTabs = () => {
         </p>
       </div>
     </div>
-  );
+    );
+  };
 
   const SocialCard = ({ project }: { project: any }) => (
     <div className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-dhaart-brown-medium/20 hover:border-dhaart-brown-medium/40 max-w-sm mx-auto">
@@ -299,19 +252,30 @@ const ProjectTabs = () => {
   );
 
   return (
-    <section id="projetos" className="py-32 bg-gradient-to-br from-dhaart-beige/15 via-white to-dhaart-blue-deep/8 min-h-screen">
+    <section id="projetos" className="py-32 min-h-screen" style={{backgroundColor: '#D8C3A5'}}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="font-raleway font-bold text-6xl md:text-7xl text-dhaart-blue-deep mb-8 leading-tight">
-            Nossos <span className="text-dhaart-brown-dark bg-gradient-to-r from-dhaart-brown-medium to-dhaart-brown-dark bg-clip-text text-transparent">Projetos</span>
+        <div 
+          ref={titleRef.elementRef}
+          className={`text-center mb-20 transition-all duration-1000 ${
+            titleRef.isIntersecting 
+              ? 'animate-fade-in opacity-100' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h2 className="font-raleway font-bold text-6xl md:text-7xl text-dhaart-brown-dark mb-8 leading-tight">
+            Nossos Projetos
           </h2>
-          <p className="font-dm-sans text-xl text-dhaart-blue-gray max-w-4xl mx-auto leading-relaxed">
-            Conheça alguns dos trabalhos que desenvolvemos com paixão e dedicação, 
-            transformando momentos em memórias inesquecíveis
-          </p>
+          
         </div>
 
-        <div className="flex justify-center mb-20">
+        <div 
+          ref={tabsRef.elementRef}
+          className={`flex justify-center mb-20 transition-all duration-1000 ${
+            tabsRef.isIntersecting 
+              ? 'animate-scale-in opacity-100' 
+              : 'opacity-0 scale-95'
+          }`}
+        >
           <div className="bg-white rounded-3xl p-3 shadow-2xl border-3 border-dhaart-beige/60">
             <button
               onClick={() => setActiveTab('realtime')}
@@ -338,16 +302,47 @@ const ProjectTabs = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 mb-20">
+        <div 
+          ref={gridRef.elementRef}
+          className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 mb-20 transition-all duration-1000 ${
+            gridRef.isIntersecting 
+              ? 'animate-slide-up opacity-100' 
+              : 'opacity-0 translate-y-10'
+          }`}
+        >
           {activeTab === 'realtime' && 
-            realtimeVideos.map(video => (
-              <VideoCard key={video.id} video={video} />
+            realtimeVideos.map((video, index) => (
+              <div
+                key={video.id}
+                className={`transition-all duration-500 ${
+                  gridRef.isIntersecting 
+                    ? 'animate-fade-in opacity-100' 
+                    : 'opacity-0'
+                }`}
+                style={{
+                  animationDelay: gridRef.isIntersecting ? `${index * 0.1}s` : '0s'
+                }}
+              >
+                <VideoCard video={video} />
+              </div>
             ))
           }
           
           {activeTab === 'social-media' && 
-            socialMediaCases.map(project => (
-              <SocialCard key={project.id} project={project} />
+            socialMediaCases.map((project, index) => (
+              <div
+                key={project.id}
+                className={`transition-all duration-500 ${
+                  gridRef.isIntersecting 
+                    ? 'animate-fade-in opacity-100' 
+                    : 'opacity-0'
+                }`}
+                style={{
+                  animationDelay: gridRef.isIntersecting ? `${index * 0.1}s` : '0s'
+                }}
+              >
+                <SocialCard project={project} />
+              </div>
             ))
           }
         </div>
